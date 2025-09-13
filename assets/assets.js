@@ -110,7 +110,7 @@ export const workData = [
         title: 'Sahil',
         description: 'Fire saftey Trainee -(MA) ',
         bgImage: work4,
-        link: 'https://www.youtube.com/shorts/Shf3rvcDAbM',
+        link: 'https://youtube.com/shorts/oDO_rExqIfA?si=a-6oCBiwQ4Ns1Swi',
         
     },
     

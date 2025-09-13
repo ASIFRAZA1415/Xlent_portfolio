@@ -41,11 +41,11 @@ const Navbar = ({isDarkMode, setIsDarkMode}) => {
         <a href='#top'>
             <Image src={assets.logo} alt='' className='w-25 sm:w-20 md:w-22 lg:w-25 xl:w-25 ml-0 sm:ml-[-10px] md:ml-[-20px] cursor-pointer mr-5 sm:mr-8 md:mr-11 dark:invert '/> 
         </a>
-        <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"}  `}>
+        <ul className={`hidden md:flex items-center gap-4 lg:gap-6 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"}  `}>
             <li><a href='#home'>Home</a></li>
-            <li><a className='font-Ovo' href='#about'>About me</a></li>
-            <li><a className='font-Ovo' href='#services'>Services</a></li>
-            <li><a className='font-Ovo' href='#work'>My Work</a></li>
+            <li><a className='font-Ovo' href='#about'>About </a></li>
+            <li><a className='font-Ovo' href='#services'>Courses</a></li>
+            <li><a className='font-Ovo' href='#work'>Trainees-Team</a></li>
             <li><a className='font-Ovo' href='#contact'>Contact me </a></li>
             
         </ul>

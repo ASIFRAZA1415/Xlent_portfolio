@@ -54,7 +54,16 @@ const Footer = ({isDarkMode}) => {
             > isspokencentre@gmail.com
             </a>
           </div>
+          
+
         </div>
+        <div className="flex justify-center  ">
+          <Image
+           src={isDarkMode ? assets.lifetime : assets.lifetime}
+           alt=""
+           className="w-60 sm:w-50 md:w-55 lg:w-60 mb-1 dark:invert "
+           />
+           </div>
       </div>
     </section>
       </div>

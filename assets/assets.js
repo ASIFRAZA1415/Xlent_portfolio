@@ -14,6 +14,7 @@ import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import logo_2 from './logo2.png'
 import logo_dark from './logo_dark.png';
+import lifetime from'./life-time.png';
 import mail_icon from './mail_icon.png';
 import mail_icon_dark from './mail_icon_dark.png';
 import profile_img from './profile-img.png';
@@ -62,6 +63,7 @@ export const assets = {
     right_arrow_white,
     logo,
     logo_dark,
+    lifetime,
     mail_icon,
     mail_icon_dark,
     profile_img,

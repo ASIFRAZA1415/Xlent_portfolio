@@ -3,6 +3,7 @@ import Header  from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Feedback from "@/components/Feedback";
 
 import Image from "next/image";
 import Work from "@/components/Work";
@@ -42,7 +43,9 @@ export default function Home() {
     <Services isDarkMode={isDarkMode} />
     <Work isDarkMode={isDarkMode} />
     <Contact isDarkMode={isDarkMode} />
+    <Feedback isDarkMode={isDarkMode}/>
     <Footer isDarkMode={isDarkMode} />
+    
     </>
   );
 }

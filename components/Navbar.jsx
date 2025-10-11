@@ -39,7 +39,7 @@ const Navbar = ({isDarkMode, setIsDarkMode}) => {
       <nav className={`w-full fixed-top-0 px-3 lg:px-8 xl:px-[8%] py-5
       flex items-center justify-between z-50 ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-[#11001F] dark:shadow-white/20" : ""} `}>
         <a href='#top'>
-            <Image src={assets.logo} alt='' className='w-17 sm:w-17 md:w-21 lg:w-25 xl:w-25 ml-0 sm:ml-[-10px] md:ml-[-20px] cursor-pointer mr-5 sm:mr-8 md:mr-11 dark:invert '/> 
+            <Image src={assets.logo} alt='' className='w-17 sm:w-15 md:w-17 lg:w-25 xl:w-25 ml-2   cursor-pointer mr-5 sm:mr-8 md:mr-11 dark:invert '/> 
         </a>
         <ul className={`hidden md:flex items-center gap-4 lg:gap-6 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"}  `}>
             <li><a href='#home'>Home</a></li>

@@ -17,7 +17,7 @@ const  ovo = Ovo({
 });
 
 export const metadata = {
-  title: "Portfolio - GreatStack",
+  title: " X-Lent Institute ",
   description: "Created with Next.js and Tailwind CSS",
    icons: {
     icon: "/logo.png",   

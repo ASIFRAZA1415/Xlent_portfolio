@@ -25,7 +25,7 @@ const Work = (isDarkMode) => {
       whileInView={{opacity: 1, y:0}}
       transition={{duration: 0.5, delay: 0.3}}
       
-      className='text-center text-5xl font-Ovo'> Introducing Our Trainees-Team</motion.h2>
+      className='text-center text-5xl font-Ovo'> Introducing Our-Team</motion.h2>
 
       <motion.p
       initial={{opacity: 0}}

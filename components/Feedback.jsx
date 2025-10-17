@@ -1,4 +1,4 @@
-"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { Star, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -17,7 +17,7 @@ export default function FeedbackSection() {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const res = await fetch("/api/feedback");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/feedback`);
         const data = await res.json();
         setFeedbacks(data);
       } catch (error) {
@@ -36,14 +36,14 @@ export default function FeedbackSection() {
   };
 
   // 🟢 Handle video upload
-  const handleVideoChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith("video/")) {
-      setVideo(URL.createObjectURL(file));
-    } else {
-      alert("Please upload a valid video file.");
-    }
-  };
+  // const handleVideoChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file && file.type.startsWith("video/")) {
+  //     setVideo(URL.createObjectURL(file));
+  //   } else {
+  //     alert("Please upload a valid video file.");
+  //   }
+  // };
 
   // 🟢 Submit feedback and store in MongoDB
   const handleSubmit = async (e) => {

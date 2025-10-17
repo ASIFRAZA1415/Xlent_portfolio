@@ -13,6 +13,7 @@ export async function POST(req) {
       );
     }
 
+    //  Always connect before any DB operation
     await connectDB();
 
     const newFeedback = new Feedback({
@@ -26,13 +27,13 @@ export async function POST(req) {
     await newFeedback.save();
 
     return NextResponse.json(
-      { message: "Feedback saved successfully!", feedback: newFeedback },
+      { message: " Feedback saved successfully!", feedback: newFeedback },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error saving feedback:", error);
+    console.error(" Error saving feedback:", error);
     return NextResponse.json(
-      { message: "Error saving feedback" },
+      { message: "Server error while saving feedback" },
       { status: 500 }
     );
   }
@@ -42,11 +43,11 @@ export async function GET() {
   try {
     await connectDB();
     const feedbacks = await Feedback.find().sort({ date: -1 });
-    return NextResponse.json(feedbacks);
+    return NextResponse.json(feedbacks, { status: 200 });
   } catch (error) {
-    console.error("Error fetching feedback:", error);
+    console.error(" Error fetching feedback:", error);
     return NextResponse.json(
-      { message: "Error fetching feedback" },
+      { message: "Server error while fetching feedback" },
       { status: 500 }
     );
   }

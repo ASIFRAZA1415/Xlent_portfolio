@@ -17,12 +17,44 @@ const  ovo = Ovo({
 });
 
 export const metadata = {
-  title: " X-Lent Institute ",
-  description: "Created with Next.js and Tailwind CSS",
-   icons: {
-    icon: "/logo.png",   
+  title: "X-Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
+  description:
+    "X-Lent Institute is a leading educational center in Padrauna, Kushinagar (U.P.) offering English Speaking, Personality Development, Safety Courses, and Computer Training programs that help students build confidence, communication skills, and a successful career.",
+  keywords: [
+    "X-Lent Institute Padrauna",
+    "English Speaking Classes",
+    "Personality Development",
+    "Safety Courses",
+    "Computer Training",
+    "Spoken English Padrauna",
+    "Communication Skills",
+    "Career Development",
+  ],
+  authors: [{ name: "X-Lent Institute" }],
+  creator: "X-Lent Institute",
+  publisher: "X-Lent Institute",
+  openGraph: {
+    title: "X-Lent Institute – Learn English, Build Confidence & Grow",
+    description:
+      "Join X-Lent Institute in Padrauna, Kushinagar (U.P.) for English Speaking, Personality Development, Safety, and Computer Courses. Empower your communication and career skills.",
+    url: "https://xlentinstitute.com",
+    siteName: "X-Lent Institute",
+    images: [
+      {
+        url: "/logo.png", // 👈 Make sure /public/logo.png exists
+        width: 800,
+        height: 600,
+        alt: "X-Lent Institute Logo",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  icons: {
+     icon: "/assets/logo.png",
   },
 };
+
 
 
 export default function RootLayout({children}) {

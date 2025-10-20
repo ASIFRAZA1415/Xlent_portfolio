@@ -19,7 +19,7 @@ const  ovo = Ovo({
 export const metadata = {
   title: "X-Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
   description:
-    "X-Lent Institute is a leading educational center in Padrauna, Kushinagar (U.P.) offering English Speaking, Personality Development, Safety Courses, and Computer Training programs that help students build confidence, communication skills, and a successful career.",
+    "X-Lent Institute is a leading educational center in Padrauna, offering English Speaking, Personality Development, Safety Courses, and Computer Training programs that help students build confidence, communication skills, and a successful career.",
   keywords: [
     "X-Lent Institute Padrauna",
     "English Speaking Classes",

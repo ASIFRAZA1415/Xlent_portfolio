@@ -34,7 +34,7 @@ export const metadata = {
   creator: "X-Lent Institute",
   publisher: "X-Lent Institute",
   openGraph: {
-    title: "X-Lent Institute – Learn English, Build Confidence & Grow",
+    title: "X-Lent Institute Padrauna Kushinagar",
     description:
       "Join X-Lent Institute in Padrauna, Kushinagar (U.P.) for English Speaking, Personality Development, Safety, and Computer Courses. Empower your communication and career skills.",
     url: "https://xlentinstitute.com",

@@ -34,24 +34,24 @@ export const metadata = {
   creator: "X-Lent Institute",
   publisher: "X-Lent Institute",
   openGraph: {
-    title: "X-Lent Institute Padrauna Kushinagar",
+    title: "X-Lent Institute Padrauna Kushinagar UP",
     description:
-      "Join X-Lent Institute in Padrauna, Kushinagar (U.P.) for English Speaking, Personality Development, Safety, and Computer Courses. Empower your communication and career skills.",
+      "Join X-Lent Institute in Padrauna,for English Speaking, Personality Development, Safety, and Computer Courses. Empower your communication and career skills.",
     url: "https://xlentinstitute.com",
     siteName: "X-Lent Institute",
-    images: [
-      {
-        url: "/logo.png", // 👈 Make sure /public/logo.png exists
-        width: 800,
-        height: 600,
-        alt: "X-Lent Institute Logo",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "/logo.png", 
+    //     width: 800,
+    //     height: 600,
+    //     alt: "X-Lent Institute Logo",
+    //   },
+    // ],
     locale: "en_IN",
     type: "website",
   },
   icons: {
-     icon: "/assets/logo.png",
+     icon: "/favicon.png",
   },
 };
 

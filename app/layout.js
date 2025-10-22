@@ -17,15 +17,19 @@ const  ovo = Ovo({
 });
 
 export const metadata = {
-  title: "X-Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
+  title: "X Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
   description:
     "X-Lent Institute is a leading educational center in Padrauna, offering English Speaking, Personality Development, Safety Courses, and Computer Training programs that help students build confidence, communication skills, and a successful career.",
   keywords: [
     "X-Lent Institute Padrauna",
+    "xlent institute",
+    "Xlent institute",
     "English Speaking Classes",
+    "English Speaking ",
     "Personality Development",
     "Safety Courses",
     "Computer Training",
+    "Computer Courses",
     "Spoken English Padrauna",
     "Communication Skills",
     "Career Development",

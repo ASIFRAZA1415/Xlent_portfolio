@@ -157,7 +157,7 @@ export default function FeedbackSection() {
 
       {/* Display Feedbacks */}
       {feedbacks.length > 0 && (
-        <div className="max-w-6xl mx-auto relative mt-14">
+        <div className="w-full max-w-6xl w-s mx-auto relative mt-14 ">
           <button
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-100 hover:bg-gray-200 p-2 rounded-full shadow z-10"
@@ -178,7 +178,7 @@ export default function FeedbackSection() {
             {feedbacks.map((fb, i) => (
               <div
                 key={i}
-                className="min-w-[280px] sm:min-w-[320px] md:min-w-[380px] max-w-[400px] bg-white border border-gray-200 rounded-2xl shadow-md p-5 flex-shrink-0 transition-transform duration-300 hover:scale-[1.02]"
+                className=" min-w-[250px] sm:min-w-[220px] md:min-w-[320px] max-w-[400px] bg-white border border-gray-200 rounded-2xl shadow-md p-5 flex-shrink-0 transition-transform duration-300 hover:scale-[1.02]"
               >
                 <div className="flex justify-between items-center mb-3">
                   <div className="flex items-center space-x-3">

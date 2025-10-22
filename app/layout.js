@@ -4,7 +4,7 @@ import './globals.css'
 import { Outfit, Ovo } from "next/font/google";
 
 
-
+ 
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -17,13 +17,15 @@ const  ovo = Ovo({
 });
 
 export const metadata = {
-  title: "X Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
+   metadataBase: new URL("https://xlentinstitute.com"),
+  title: "X-Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
   description:
     "X-Lent Institute is a leading educational center in Padrauna, offering English Speaking, Personality Development, Safety Courses, and Computer Training programs that help students build confidence, communication skills, and a successful career.",
   keywords: [
     "X-Lent Institute Padrauna",
     "xlent institute",
-    "Xlent institute",
+    "x lent institute",
+    "X lent institute",
     "English Speaking Classes",
     "English Speaking ",
     "Personality Development",
@@ -35,8 +37,12 @@ export const metadata = {
     "Career Development",
   ],
   authors: [{ name: "X-Lent Institute" }],
-  creator: "X-Lent Institute",
+  creator: "Asif Hussain",
   publisher: "X-Lent Institute",
+   robots: {
+    index: true, //  allow indexing
+    follow: true, //  allow link crawling
+  },
   openGraph: {
     title: "X-Lent Institute Padrauna Kushinagar UP",
     description:

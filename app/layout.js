@@ -43,6 +43,9 @@ export const metadata = {
     index: true, //  allow indexing
     follow: true, //  allow link crawling
   },
+  other: {
+    "google-site-verification": "YOUR_VERIFICATION_CODE_HERE",
+  },
   openGraph: {
     title: "X-Lent Institute Padrauna Kushinagar UP",
     description:

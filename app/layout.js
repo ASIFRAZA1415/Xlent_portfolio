@@ -18,7 +18,7 @@ const  ovo = Ovo({
 
 export const metadata = {
    metadataBase: new URL("https://xlentinstitute.com"),
-  title: "X-Lent Institute | English Speaking, Personality Development & Safety Courses in Padrauna",
+  title: "X-Lent Institute Padrauna kushinagr (UP)",
   description:
     "X-Lent Institute is a leading educational center in Padrauna, offering English Speaking, Personality Development, Safety Courses, and Computer Training programs that help students build confidence, communication skills, and a successful career.",
   keywords: [
@@ -47,19 +47,19 @@ export const metadata = {
     "google-site-verification": "YOUR_VERIFICATION_CODE_HERE",
   },
   openGraph: {
-    title: "X-Lent Institute Padrauna Kushinagar UP",
+    title: "X-Lent Institute Padrauna Kushinagar (UP)",
     description:
       "Join X-Lent Institute in Padrauna,for English Speaking, Personality Development, Safety, and Computer Courses. Empower your communication and career skills.",
     url: "https://xlentinstitute.com",
     siteName: "X-Lent Institute",
-    // images: [
-    //   {
-    //     url: "/logo.png", 
-    //     width: 800,
-    //     height: 600,
-    //     alt: "X-Lent Institute Logo",
-    //   },
-    // ],
+    images: [
+      {
+        url: "/logo.png", 
+        width: 1600,
+        height: 1200,
+        alt: "X-Lent Institute Logo",
+      },
+    ],
     locale: "en_IN",
     type: "website",
   },

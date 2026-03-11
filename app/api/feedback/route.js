@@ -4,7 +4,7 @@ import Feedback from "@/models/Feedback";
 
 export async function POST(req) {
   try {
-    const { name, rating, feedback, video } = await req.json();
+    const { name, rating, feedback, video, profileImage } = await req.json();
 
     if (!name || !rating || !feedback) {
       return NextResponse.json(
@@ -20,7 +20,8 @@ export async function POST(req) {
       name,
       rating,
       feedback,
-      video: video || null,
+      video: video || "",
+      profileImage: profileImage || "",
       date: new Date(),
     });
 

@@ -12,20 +12,32 @@ export default function FeedbackSection() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [success, setSuccess] = useState(false);
   const scrollRef = useRef(null);
+  const [profileImage, setProfileImage] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
+
+
 
   // 🟢 Fetch feedbacks from MongoDB when component loads
   useEffect(() => {
-    const fetchFeedbacks = async () => {
-      try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/feedback`);
-        const data = await res.json();
-        setFeedbacks(data);
-      } catch (error) {
-        console.error("Error fetching feedbacks:", error);
+  const fetchFeedbacks = async () => {
+    try {
+      const res = await fetch("/api/feedback");
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch feedbacks");
       }
-    };
-    fetchFeedbacks();
-  }, []);
+
+      const data = await res.json();
+      setFeedbacks(data);
+    } catch (error) {
+      console.error("Error fetching feedbacks:", error);
+    }
+  };
+
+  fetchFeedbacks();
+}, []);
+
 
   // 🟢 Scroll function for arrows
   const scroll = (direction) => {
@@ -34,6 +46,38 @@ export default function FeedbackSection() {
     const scrollAmount = direction === "left" ? -400 : 400;
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
+
+  const uploadImage = async () => {
+  if (!profileImage) return null;
+
+  const formData = new FormData();
+  formData.append("file", profileImage);
+  formData.append("upload_preset", "xlent_feedback"); // Cloudinary preset
+
+  // setUploading(true);
+
+  try {
+  const res = await fetch(
+    "https://api.cloudinary.com/v1_1/dggmcgqzd/image/upload",
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+
+  const data = await res.json();
+
+  if (!data.secure_url) {
+    console.error("Cloudinary error:", data);
+  throw new Error("Cloudinary upload failed");
+}
+  return data.secure_url;
+} catch (err) {
+    console.error("Upload image error:", err);
+    return null;
+  }
+};
+
 
   // 🟢 Handle video upload
   // const handleVideoChange = (e) => {
@@ -50,14 +94,18 @@ export default function FeedbackSection() {
     e.preventDefault();
 
     try {
+       setUploading(true);
+       const imageUrl = await uploadImage();
+       console.log("Uploaded Image URL:", imageUrl);
+
       const res = await fetch("/api/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, rating, feedback, video }),
+        body: JSON.stringify({ name, rating, feedback, video, profileImage: imageUrl }),
       });
 
       if (res.ok) {
-        const newFeedback = { name, rating, feedback, video, date: new Date().toLocaleDateString() };
+        const newFeedback = { name, rating, feedback, video, profileImage: imageUrl, date: new Date().toLocaleDateString() };
         setFeedbacks([newFeedback, ...feedbacks]);
         setSuccess(true);
         setName("");
@@ -65,6 +113,13 @@ export default function FeedbackSection() {
         setHover(0);
         setFeedback("");
         setVideo(null);
+        setProfileImage(null);
+        
+        if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+
+        setSuccess(true);
         setTimeout(() => setSuccess(false), 2000);
       } else {
         alert("Failed to save feedback!");
@@ -73,29 +128,59 @@ export default function FeedbackSection() {
       console.error("Error submitting feedback:", error);
       alert("Something went wrong!");
     }
+    finally {
+    setUploading(false);
+  }
   };
 
   return (
     <section className="w-full px-[12%] py-10 bg-no-repeat bg-center bg-[length:90%_auto]">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-5xl mb-6 font-Ovo">Student Feedback</h2>
-        <p className="text-gray-950 mb-10">
-          Rate your experience and share a short video review!
-        </p>
+        <h3 className="text-3xl mb-3 font-Ovo">Excellent on Google</h3>
+        {/* <p className="text-gray-950 mb-10">
+          Rate your experience and share a review!
+        </p> */}
+
+        {/* <div className="flex items-center justify-center mb-10">
+         <label className="cursor-pointer">
+        <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+       className="hidden"
+       onChange={(e) => setProfileImage(e.target.files[0])}
+      />
+      <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden border">
+         {profileImage ? (
+           
+           <img
+             src={URL.createObjectURL(profileImage)}
+             alt="profile preview"
+             className="w-full h-full object-cover"
+            />
+
+         ) : (
+          <span className="text-sm text-gray-600">Upload Photo</span>
+          )}
+         </div>
+       </label>
+      </div> */}
+
 
         {/* Feedback Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <input
+          {/* <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your name"
             className="w-full p-3 rounded-lg bg-gray-100 focus:ring-2 focus:ring-yellow-400"
             required
-          />
+          /> */}
 
           {/* Star Rating */}
-          <div className="flex justify-center space-x-2 mb-4">
+          {/* <div className="flex justify-center space-x-2 mb-4">
             {[...Array(5)].map((_, i) => {
               const starValue = i + 1;
               return (
@@ -113,16 +198,16 @@ export default function FeedbackSection() {
                 />
               );
             })}
-          </div>
+          </div> */}
 
-          <textarea
+          {/* <textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Write your feedback..."
             className="w-full p-3 rounded-lg bg-gray-100 focus:ring-2 focus:ring-yellow-400"
             rows={4}
             required
-          />
+          /> */}
 
           {/* <div className="space-y-3">
             <label className="block font-medium">Upload your video feedback:</label>
@@ -138,8 +223,9 @@ export default function FeedbackSection() {
               </video>
             )}
           </div> */}
+          
 
-          <button
+          {/* <button
             type="submit"
             className="bg-yellow-500 hover:bg-yellow-600 rounded-full text-black font-semibold py-2 px-6 transition"
           >
@@ -151,24 +237,24 @@ export default function FeedbackSection() {
               <CheckCircle size={22} />
               <span>Feedback submitted successfully!</span>
             </div>
-          )}
+          )} */}
         </form>
       </div>
 
       {/* Display Feedbacks */}
       {feedbacks.length > 0 && (
-        <div className="w-full max-w-6xl w-s mx-auto relative mt-14 ">
+        <div className="w-full max-w-6xl  w-s mx-auto relative mt-14 ">
           <button
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-100 hover:bg-gray-200 p-2 rounded-full shadow z-10"
           >
-            <ChevronLeft />
+            {/* <ChevronLeft /> */}
           </button>
           <button
             onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-100 hover:bg-gray-200 p-2 rounded-full shadow z-10"
           >
-            <ChevronRight />
+            {/* <ChevronRight /> */}
           </button>
 
           <div
@@ -178,16 +264,19 @@ export default function FeedbackSection() {
             {feedbacks.map((fb, i) => (
               <div
                 key={i}
-                className=" min-w-[250px] sm:min-w-[220px] md:min-w-[320px] max-w-[400px] bg-white border border-gray-200 rounded-2xl shadow-md p-5 flex-shrink-0 transition-transform duration-300 hover:scale-[1.02]"
+                className=" min-w-[80px] sm:min-w-[80px] md:min-w-[130px] max-w-[300px] bg-white border border-gray-300 rounded-2xl shadow-md p-5 flex-shrink-0 transition-transform duration-300 hover:scale-[1.02]"
               >
                 <div className="flex justify-between items-center mb-3">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 font-semibold">
-                      {fb.name[0]}
-                    </div>
+                    {/* <img
+                     src={fb.profileImage || "/default-avatar.png"}
+                     alt={fb.name}
+                     className="w-10 h-10 rounded-full object-cover border"
+                    /> */}
+
                     <div>
                       <h4 className="font-semibold text-gray-900 text-base sm:text-lg">{fb.name}</h4>
-                      <p className="text-xs sm:text-sm text-gray-500">{fb.date}</p>
+                      {/* <p className="text-xs sm:text-sm text-gray-500">{fb.date}</p> */}
                     </div>
                   </div>
                   <img src="/google.svg" alt="Google" className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -198,8 +287,9 @@ export default function FeedbackSection() {
                     <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
+                <hr></hr>
 
-                <p className="text-gray-800 text-sm sm:text-base leading-relaxed mb-3 break-words whitespace-pre-wrap">
+                <p className="text-gray-800 text-sm sm:text-base leading-relaxed mb-2 mt-2 break-words whitespace-pre-wrap">
                   {fb.feedback}
                 </p>
 

@@ -13,6 +13,10 @@ const FeedbackSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  profileImage: {
+    type: String, // Cloudinary image URL
+    default: "",
+  },
   video: {
     type: String, // Cloudinary video URL store karega
     default: "",

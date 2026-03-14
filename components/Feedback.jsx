@@ -136,7 +136,7 @@ export default function FeedbackSection() {
   return (
     <section className="w-full px-[12%] py-10 bg-no-repeat bg-center bg-[length:90%_auto]">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-5xl mb-6 font-Ovo">Student Feedback</h2>
+        <h2 className="text-5xl mb-6 font-Ovo">Students Feedback</h2>
         <h3 className="text-3xl mb-3 font-Ovo">Excellent on Google</h3>
         {/* <p className="text-gray-950 mb-10">
           Rate your experience and share a review!

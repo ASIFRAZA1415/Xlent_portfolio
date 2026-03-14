@@ -109,8 +109,8 @@ export const workData = [
     },
    
     {
-        title: 'Sahil',
-        description: 'Fire saftey Trainee -(MA) ',
+        title: 'Er Manir Alam',
+        description: 'Mechanical Engineering, fire and safety - (B.Tech) ',
         bgImage: work4,
         link: 'https://youtube.com/shorts/oDO_rExqIfA?si=a-6oCBiwQ4Ns1Swi',
         
